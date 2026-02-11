@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>new Order</title>
+</head>
+<body>
+<h1>New order</h1>
+<form method="post" th:action="@{/orders}">
+    <input name="_method" type="hidden" value="PUT">
+    <p>
+        <label>Put in total amount</label>
+        <input name="totalAmount" th:value="${order.getTotalAmount()}" type="number">
+    </p>
+    <button type="submit">Update Order</button>
+
+</form>
+
+</body>
+</html>

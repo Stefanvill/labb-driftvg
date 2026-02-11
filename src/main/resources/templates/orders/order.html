@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
+</head>
+<body>
+<h1>Orders</h1>
+<ul>
+    <li th:each="o : ${order}">
+        <span th:text="'id: ' + ${o.id}"></span>
+        <span th:text="'Total Amount: ' + ${o.getTotalAmount()}"></span>
+        <span th:text="'Created at: ' + ${o.getOrderDate()}"></span>
+
+    </li>
+</ul>
+
+</body>
+</html>
