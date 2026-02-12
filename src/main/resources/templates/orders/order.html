@@ -11,11 +11,17 @@
         <span th:text="'id: ' + ${o.id}"></span>
         <span th:text="'Total Amount: ' + ${o.getTotalAmount()}"></span>
         <span th:text="'Created at: ' + ${o.getOrderDate()}"></span>
+        <form method="post" style="display:inline"
+              th:action="@{/orders/{id}(id=${o.id})}">
+            <input name="_method" type="hidden" value="DELETE">
+            <button onclick="return confirm('Delete order ${o.id}?')" type="submit">Ta bort</button>
+        </form>
     </li>
 
     <a href="http://localhost:8080/orders/new">Add a new order</a>
 
 </ul>
+
 
 </body>
 </html>

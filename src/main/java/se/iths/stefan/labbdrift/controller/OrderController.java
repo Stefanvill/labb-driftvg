@@ -45,4 +45,11 @@ public class OrderController {
         model.addAttribute("order", order);
         return "orders/update-order";
     }
+    
+
+    @DeleteMapping("/{id}")
+    public String deleteOrder(@PathVariable Long id) {
+        orderService.deleteOrder(id);
+        return "redirect:/orders";
+    }
 }
