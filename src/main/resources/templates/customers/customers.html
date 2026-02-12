@@ -14,11 +14,15 @@
         <span th:text="${customer.email}"></span>
         <a th:href="@{/customers/{id}/edit(id=${customer.id})}">Uppdate customer</a>
 
+
         <form th:action="@{/customers/{id}(id=${customer.id})}" method="post" style="display:inline">
             <input type="hidden" name="_method" value="DELETE">
             <button type="submit">Ta bort</button>
 
         </form>
+    </li>
+    <li>
+        <a href="http://localhost:8080/customers/new">Add new customer</a>
     </li>
 </ul>
 </body>
