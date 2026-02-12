@@ -18,24 +18,19 @@ public class CustomerController {
     @GetMapping
     public String getAllCustomers(Model model) {
         model.addAttribute("customers", customerService.getAllCustomers());
-        return "customers";
+        return "customers/customers";
     }
 
     @GetMapping("/new")
-    public String showCreateForm() {
-        return "create-customer";
+    public String showCreateForm(Model model) {
+        model.addAttribute("customer", new Customer());
+        return "customers/create-customer";
     }
 
     @PostMapping
     public String createCustomer(@ModelAttribute Customer customer) {
         Customer customer2 = customerService.createCustomer(customer);
         return "redirect:/customers";
-    }
-
-    @GetMapping("/{id}")
-    public String findCustomerById(@PathVariable Long id, Model model) {
-        model.addAttribute("customers", customerService.findCustomer(id));
-        return "customers";
     }
 
     @PutMapping("/{id}")
@@ -48,7 +43,7 @@ public class CustomerController {
     public String showUpdateForm(@PathVariable Long id, Model model) {
         Customer customer = customerService.findCustomer(id);
         model.addAttribute("customer", customer);
-        return "edit-customer";
+        return "customers/edit-customer";
     }
 
     @DeleteMapping("/{id}")
