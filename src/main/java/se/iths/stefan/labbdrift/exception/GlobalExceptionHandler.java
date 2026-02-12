@@ -1,0 +1,15 @@
+package se.iths.stefan.labbdrift.exception;
+
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+@ControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(ResourcesNotFoundException.class)
+    public String handleNotFound(ResourcesNotFoundException ex, Model model) {
+        model.addAttribute("message", ex.getMessage());
+        return "error/404";
+    }
+}
