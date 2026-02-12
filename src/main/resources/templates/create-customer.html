@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new customer</title>
+</head>
+<body>
+<h1>Create new customer</h1>
+
+<form method="post" th:action="@{/customers}">
+    <p>
+        <label>First name: </label>
+        <input type="text" name="firstName">
+    </p>
+    <p>
+        <label>Last name: </label>
+        <input type="text" name="lastName">
+    </p>
+    <p>
+        <label>Email: </label>
+        <input type="text" name="email">
+    </p>
+    <button type="submit">Save customer</button>
+</form>
+</body>
+</html>

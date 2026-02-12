@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Här är alla kunder</title>
+</head>
+<body>
+<h1>Alla kunder</h1>
+<ul>
+    <li th:each="customer : ${customers}">
+        <span th:text="${customer.id}"></span>
+        <span th:text="${customer.firstName}"></span>
+        <span th:text="${customer.lastName}"></span>
+        <span th:text="${customer.email}"></span>
+        <a th:href="@{/customers/{id}/edit(id=${customer.id})}">Uppdate customer</a>
+
+        <form th:action="@{/customers/{id}(id=${customer.id})}" method="post" style="display:inline">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit">Ta bort</button>
+
+        </form>
+    </li>
+</ul>
+</body>
+</html>

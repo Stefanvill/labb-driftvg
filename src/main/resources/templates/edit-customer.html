@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update customer</title>
+</head>
+<body>
+<h1>Update Customer Email</h1>
+<form method="post" th:action="@{/customers/{id}(id=${customer.id})}">
+    <input type="hidden" name="_method" value="PUT">
+    <input type="hidden" name="id" th:value="${customer.id}">
+    <p>
+        <label>Enter your new firstname</label>
+        <input name="firstName" type="text">
+    </p>
+    <p>
+        <label>Enter your new lastname</label>
+        <input name="lastName" type="text">
+    </p>
+    <p>
+        <label>Enter your new email</label>
+        <input name="email" type="text">
+    </p>
+    <p>
+        <button type="submit">Uppdate customer info</button>
+    </p>
+</form>
+</body>
+</html>
