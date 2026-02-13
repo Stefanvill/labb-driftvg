@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Detail</title>
+    <link rel="stylesheet" th:href="@{/css/orders.css}">
+</head>
+<body>
+<h1>Order Details</h1>
+<p th:text="'Order id: ' + ${order.id}"></p>
+<p th:text="'Total Amount: ' + ${order.getTotalAmount()}"></p>
+
+
+<span th:switch="${order.getStatus()}">
+   <span style="color: #856404;" th:case="1">Pending</span>
+   <span style="color: green;" th:case="2">Delivered</span>
+   <span style="color: red;" th:case="3">Cancelled</span>
+   <span style="color: orange;" th:case="4">Returned</span>
+   <span th:case="*">Unknown</span>
+</span>
+
+
+<p th:text="'Created at: ' + ${order.getOrderDate()}"></p>
+<a th:href="@{/orders}">← Back</a>
+</body>
+</html>
