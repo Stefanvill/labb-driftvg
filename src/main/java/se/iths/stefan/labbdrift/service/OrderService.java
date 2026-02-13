@@ -35,11 +35,15 @@ public class OrderService {
     }
 
     public void deleteOrder(Long id) {
+        Order order = repository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Order not found"));
+        orderValidator.performOrderDelete(order.getStatus());
         repository.deleteById(id);
     }
 
     public Order updateOrder(Long id, Order order) {
         order.setId(id);
+        orderValidator.performUpdate(order);
         return repository.save(order);
     }
 }
