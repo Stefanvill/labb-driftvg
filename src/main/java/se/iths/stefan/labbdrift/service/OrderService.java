@@ -2,6 +2,7 @@ package se.iths.stefan.labbdrift.service;
 
 import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Service;
+import se.iths.stefan.labbdrift.exception.OrderNotFoundException;
 import se.iths.stefan.labbdrift.model.Order;
 import se.iths.stefan.labbdrift.repository.OrderRepository;
 import se.iths.stefan.labbdrift.validator.OrderValidator;
@@ -25,7 +26,7 @@ public class OrderService {
 
     public Order getOrder(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("No order found with id: " + id));
+                .orElseThrow(() -> new OrderNotFoundException("No order found with id: " + id));
     }
 
     public Order createOrder(Order order) {

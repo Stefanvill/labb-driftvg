@@ -9,6 +9,7 @@ import se.iths.stefan.labbdrift.model.Order;
 @Component
 public class OrderValidator {
 
+
     public void performCreateOrder(Order order) {
         if (order.getTotalAmount() <= 0) {
             throw new InvalidAmountException("Total amount cant be 0");
