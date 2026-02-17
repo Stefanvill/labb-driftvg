@@ -3,6 +3,7 @@ package se.iths.stefan.labbdrift.model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "customer")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
