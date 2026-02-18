@@ -33,16 +33,17 @@ public class ProductService {
     }
 
     public Product update(Long id, Product updated) {
-        productValidator.validate(updated);
-
         Product existing = getOne(id);
+
         existing.setName(updated.getName());
         existing.setPrice(updated.getPrice());
         existing.setStock(updated.getStock());
         existing.setActive(updated.isActive());
 
+        productValidator.validate(existing);
         return repo.save(existing);
     }
+
 
     public void delete(Long id) {
         Product existing = getOne(id);
